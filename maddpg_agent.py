@@ -36,7 +36,6 @@ class Agent():
         self.state_size = state_size
         self.action_size = action_size
         self.seed = random.seed(random_seed)
-        self.timestep = 0
         self.eps = 5
 
         # Actor Network (w/ Target Network)
@@ -57,8 +56,6 @@ class Agent():
 
     def step(self, state, action, reward, next_state, done, agnt_idx):
         """Save experience in replay memory, and use random sample from buffer to learn."""
-        self.timestep += 1
-        
         # Save experience / reward
         self.memory.add(state, action, reward, next_state, done)
         
